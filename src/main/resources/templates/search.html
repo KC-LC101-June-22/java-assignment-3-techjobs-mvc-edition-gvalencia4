@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org/">
+<html xmlns:th="http://www.thymeleaf.org/" lang="en-US">
 <head th:replace="fragments :: head">
+    <title></title>
 </head>
 <body>
 
@@ -36,7 +37,8 @@
 
     <hr />
 
-    <!-- TODO #4 - Loop over the search results to display all job fields. -->
+    <!-- Loop over the search results to display all job fields. -->
+    <table th:replace="fragments :: results-table"></table>
 
 </div>
 
