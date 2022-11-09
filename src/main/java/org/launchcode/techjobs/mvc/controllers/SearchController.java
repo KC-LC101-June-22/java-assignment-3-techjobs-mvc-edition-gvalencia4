@@ -18,7 +18,7 @@ import static org.launchcode.techjobs.mvc.controllers.ListController.columnChoic
  */
 @Controller
 @RequestMapping("search")
-public class SearchController {
+public class SearchController extends TechJobsController {
 
     // Default selected radio button is "All"
     private String searchRadioType = "all";
