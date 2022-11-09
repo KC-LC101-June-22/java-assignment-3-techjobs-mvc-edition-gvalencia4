@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org/">
-    <head th:replace="fragments :: head"></head>
-
+<html xmlns:th="http://www.thymeleaf.org/" lang="en-US">
+    <head th:replace="fragments :: head">
+        <title>Title</title>
+    </head>
     <body>
 
         <div th:replace="fragments :: page-header"></div>
@@ -20,7 +21,13 @@
             <tr>
                 <!-- TODO #2: Complete the View Jobs By Category Table. -->
 
-                <td></td> <!-- Feel free to remove or modify this element if necessary. -->
+                <td>
+                    <ul>
+                        <li>
+                            <a href="/list/jobs?column=all">View All</a>
+                        </li>
+                    </ul>
+                </td>
 
                 <td th:each="category : ${tableChoices}">
                     <ul>
