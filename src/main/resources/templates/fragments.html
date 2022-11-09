@@ -37,19 +37,27 @@
     </tr>
     <tr>
         <td>Employer</td>
-        <td th:text="${j.getEmployer}"></td>
+        <td>
+            <a th:href="@{/list/jobs(column='employer',value=${j.getEmployer})}" th:text="${j.getEmployer}"></a>
+        </td>
     </tr>
     <tr>
         <td>Location</td>
-        <td th:text="${j.getLocation}"></td>
+        <td>
+            <a th:href="@{/list/jobs(column='location',value=${j.getLocation})}" th:text="${j.getLocation}"></a>
+        </td>
     </tr>
     <tr>
         <td>Position Type</td>
-        <td th:text="${j.getPositionType}"></td>
+        <td>
+            <a th:href="@{/list/jobs(column='positionType',value=${j.getPositionType})}" th:text="${j.getPositionType}"></a>
+        </td>
     </tr>
     <tr>
         <td>Skill</td>
-        <td th:text="${j.getCoreCompetency}"></td>
+        <td>
+            <a th:href="@{/list/jobs(column='coreCompetency',value=${j.getCoreCompetency})}" th:text="${j.getCoreCompetency}"></a>
+        </td>
     </tr>
 </table>
 
