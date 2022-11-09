@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org/">
+<html xmlns:th="http://www.thymeleaf.org/" lang="en-US">
 <head th:replace="fragments :: head">
+    <title>Page Title</title>
 </head>
 <body>
 
@@ -11,7 +12,7 @@
     <h1 th:text="${#strings.capitalizeWords(title)}"></h1>
 
     <!-- TODO #1 - Use a loop to display each job result in a table. -->
-    <table style="job-listing" th:each="j : ${jobs}">
+    <table class="job-listing" th:each="j : ${jobs}">
         <tr>
             <td>ID</td>
             <td th:text="${j.getId}"></td>
@@ -37,12 +38,6 @@
             <td th:text="${j.getCoreCompetency}"></td>
         </tr>
     </table>
-
-<!--        <tr th:each="choice : ${columnChoices}">-->
-<!--            <td th:text="${choice}">Column Label</td>-->
-<!--            <td th:text="${event}">Job Element</td>-->
-<!--        </tr>-->
-
 </div>
 
 </body>
