@@ -13,7 +13,6 @@ import java.util.ArrayList;
 
 import static org.launchcode.techjobs.mvc.controllers.ListController.columnChoices;
 
-
 /**
  * Created by LaunchCode
  */
@@ -21,9 +20,16 @@ import static org.launchcode.techjobs.mvc.controllers.ListController.columnChoic
 @RequestMapping("search")
 public class SearchController {
 
+    // Default selected radio button is "All"
+    private String searchRadioType = "all";
+
+    private String searchQueryString = "Leave blank to search all";
+
     @GetMapping(value = "")
     public String search(Model model) {
         model.addAttribute("columns", columnChoices);
+        model.addAttribute("searchRadioType", searchRadioType);
+        model.addAttribute("searchQueryString", searchQueryString);
         return "search";
     }
 
@@ -36,9 +42,23 @@ public class SearchController {
         } else {
             jobs = JobData.findByColumnAndValue(searchType, searchTerm);
         }
+        setSearchRadioType(searchType);
+        setSearchQueryString(searchTerm);
+
         model.addAttribute("jobs", jobs);
         model.addAttribute("columns", columnChoices);
+        model.addAttribute("searchRadioType", searchRadioType);
+        model.addAttribute("searchQueryString", searchQueryString);
+
         return "search";
-}
+    }
+
+    public void setSearchRadioType(String searchRadioType) {
+        this.searchRadioType = searchRadioType;
+    }
+
+    public void setSearchQueryString(String searchQueryString) {
+        this.searchQueryString = searchQueryString;
+    }
 
 }

@@ -21,7 +21,7 @@
                         name="searchType"
                         th:id="${column.key}"
                         th:value="${column.key}"
-                        th:checked="${column.key == 'all'}"/>
+                        th:checked="${column.key} == ${searchRadioType}"/>
                 <label th:for="${column.key}" th:text="${column.value}"></label>
             </span>
 
@@ -29,7 +29,7 @@
 
         <p>
             <label for="searchTerm">Keyword:</label>
-            <input type="text" name="searchTerm" id="searchTerm" />
+            <input type="text" th:placeholder="${searchQueryString}" name="searchTerm" id="searchTerm" />
         </p>
 
         <input type="submit" value="Search" />
