@@ -37,13 +37,18 @@ public class SearchController extends TechJobsController {
     @PostMapping(value ="results")
     public String displaySearchResults(Model model, @RequestParam String searchType, @RequestParam String searchTerm) {
         ArrayList<Job> jobs;
-        if (searchTerm.equals("all") || searchTerm.equals("")){
+
+        // Sanitize input
+        String searchTermTrimmed = searchTerm.trim();
+
+        if (searchTermTrimmed.equals("all") || searchTermTrimmed.equals("")){
             jobs = JobData.findAll();
         } else {
-            jobs = JobData.findByColumnAndValue(searchType, searchTerm);
+            jobs = JobData.findByColumnAndValue(searchType, searchTermTrimmed);
         }
+
         setSearchRadioType(searchType);
-        setSearchQueryString(searchTerm);
+        setSearchQueryString(searchTermTrimmed);
 
         model.addAttribute("jobs", jobs);
         model.addAttribute("columns", columnChoices);
